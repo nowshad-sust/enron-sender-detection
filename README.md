@@ -19,5 +19,7 @@ A simple machine learning approach to detect the sender based on the mail body o
   
 # Latest Statistics
   * Naive Bayes classifier
-    accuracy = 0.46
+    accuracy ~ 0.46
+  * SVM
+    accuracy ~ 0.79
 
