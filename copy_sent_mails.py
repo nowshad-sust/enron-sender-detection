@@ -4,12 +4,13 @@ import datetime
 from email.parser import Parser
 
 __author__ = 'nowshad'
-MAIL_DIR_PATH = '/media/nowshad/Workstation/4-2/Ml/maildir'
+MAIL_DIR_PATH = os.path.abspath('maildir')
 PREFIX_TRIM_AMOUNT = len(MAIL_DIR_PATH) + 1
 MAX_USER_RUN_LIMIT = 500
 MAX_USER_EMAILS_PER_FOLDER_FILE_LIMIT = 2000
-OUTPUT_DIR = "remail"
+OUTPUT_DIR = os.path.abspath("remail")
 
+print(MAIL_DIR_PATH, OUTPUT_DIR)
 counter = 1
 
 p = Parser()
@@ -32,6 +33,7 @@ def save_to_folder(mailboxOwner, subFolder, filename, contents):
     writepath = OUTPUT_DIR + "/" + mailboxOwner + "/" + filename
 
     if not os.path.exists(OUTPUT_DIR + "/" + mailboxOwner):
+        print('creating directory')
         os.mkdir(OUTPUT_DIR + "/" + mailboxOwner)
 
     with open(writepath, 'w+') as f:
@@ -51,7 +53,7 @@ for root, dirs, files in os.walk(MAIL_DIR_PATH, topdown=False):
     directory = root[PREFIX_TRIM_AMOUNT:]
 
     # extract mail box owner
-    parts = directory.split('/', 1)
+    parts = directory.split('\\', 1)
     mailbox_owner = parts[0]
 
     if previous_owner != mailbox_owner:
