@@ -4,7 +4,7 @@ import datetime
 from email.parser import Parser
 
 __author__ = 'nowshad'
-MAIL_DIR_PATH = '/media/nowshad/Workstation/4-2/Ml/maildir'
+MAIL_DIR_PATH = './maildir'
 PREFIX_TRIM_AMOUNT = len(MAIL_DIR_PATH) + 1
 MAX_USER_RUN_LIMIT = 500
 MAX_USER_EMAILS_PER_FOLDER_FILE_LIMIT = 2000
