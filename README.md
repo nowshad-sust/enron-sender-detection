@@ -17,9 +17,8 @@ A simple machine learning approach to detect the sender based on the mail body o
 6. Now, run the `naive_bayes_pipeline.py` by the command - `python naive_bayes_pipeline.py`
   This should give you a number which refers to the validation sucess rate.
   
-# Latest Statistics
-  * Naive Bayes classifier
-    accuracy ~ 0.46
-  * SVM
-    accuracy ~ 0.79
+# Latest Statistics (accuracy)
+  * Naive Bayes classifier ~ 0.46
+  * SVM ~ 0.79
+  * SVM with grid search ~ 0.85
 
