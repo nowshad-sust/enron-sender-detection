@@ -1,5 +1,7 @@
 import sklearn.datasets
 
+print('Loading dataset ...');
+
 # load all data from files
 twenty_all = sklearn.datasets.load_files("./remail", 
 categories=None, load_content=True, shuffle=True, encoding="latin1", random_state=42, decode_error='strict')
