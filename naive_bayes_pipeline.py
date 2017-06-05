@@ -1,4 +1,5 @@
 import sklearn.datasets
+import logging
 
 # load all data from files
 twenty_all = sklearn.datasets.load_files("./remail", 

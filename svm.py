@@ -1,4 +1,5 @@
 import sklearn.datasets
+import logging
 
 print('Loading dataset ...');
 
