@@ -13,22 +13,16 @@ print('dataset loaded');
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(twenty_all.data, twenty_all.target, test_size=0.2)
 
-print('data processing . . .');
 
 # vectorize the training data
 from sklearn.feature_extraction.text import CountVectorizer
-count_vect = CountVectorizer()
-X_train_counts = count_vect.fit_transform(X_train)
-
-
 from sklearn.feature_extraction.text import TfidfTransformer
-tfidf_transformer = TfidfTransformer()
-X_train_tfidf = tfidf_transformer.fit_transform(X_train_counts)
+from sklearn.linear_model import SGDClassifier
 
 print('training started');
 
 # feed training data into svm
-from sklearn.linear_model import SGDClassifier
+
 from sklearn.pipeline import Pipeline
 text_clf = Pipeline([('vect', CountVectorizer()),
                      ('tfidf', TfidfTransformer()),
