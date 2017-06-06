@@ -20,16 +20,19 @@ from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.linear_model import SGDClassifier
 
 print('training started');
-
+from time import time
+start = time()
 # feed training data into svm
+if __name__ == "__main__":
+	from sklearn.pipeline import Pipeline
+	text_clf = Pipeline([('vect', CountVectorizer()),
+	                     ('tfidf', TfidfTransformer()),
+	                     ('clf', SGDClassifier(loss='hinge', penalty='l2',
+	                                           alpha=1e-3, n_iter=5, random_state=42)),
+	])
+	_ = text_clf.fit(X_train, y_train)
 
-from sklearn.pipeline import Pipeline
-text_clf = Pipeline([('vect', CountVectorizer()),
-                     ('tfidf', TfidfTransformer()),
-                     ('clf', SGDClassifier(loss='hinge', penalty='l2',
-                                           alpha=1e-3, n_iter=5, random_state=42)),
-])
-_ = text_clf.fit(X_train, y_train)
+print("done in %0.3fs" % (time() - start))
 
 print('Training complete');
 

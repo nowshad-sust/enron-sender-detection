@@ -1,17 +1,18 @@
-import sklearn.datasets
-import logging
+from sklearn.datasets import load_files
+
+print('Loading Dataset ...');
 
 # load all data from files
-twenty_all = sklearn.datasets.load_files("./remail", 
+twenty_all = load_files("./remail", 
 categories=None, load_content=True, shuffle=True, encoding="latin1", random_state=42, decode_error='strict')
 
 print('dataset loaded');
 
-print('data processing . . .');
 # split the train and test data
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(twenty_all.data, twenty_all.target, test_size=0.2)
 
+print('data processing . . .');
 
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfTransformer
