@@ -24,7 +24,7 @@ print('training started');
 # feed the train dataset into naive_bayes model
 text_clf = Pipeline([('vect', CountVectorizer()),
                      ('tfidf', TfidfTransformer()),
-                     ('clf', MultinomialNB()),
+                     ('clf', MultinomialNB(alpha=0.0001)),
 ])
 text_clf = text_clf.fit(X_train, y_train)
 
